@@ -1,0 +1,59 @@
+---
+title: "Tasty_code_snippets"
+author: "Varun Venkatesh"
+date: "25/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R code snippets for use at later stages.
+
+
+###### GGplot code for XY plot
+
+```{r}
+path <- "~/R_working_directory/COVID_19_sex_data.csv"
+
+
+Covid_data <- read_csv(path)
+
+
+glimpse(Covid_data)
+
+#basic graph case # x M:F ratio of death in confirmed cases
+
+ggplot(data = Covid_data, aes(x = `Deaths in confirmed cases (Male:female ratio)`, y = Cases))+
+geom_point()+
+  ylim(0,75000)
+
+# complex graph cases x M:F rato x % of deaths
+
+
+ggplot(data = Covid_data, aes(x = `Deaths in confirmed cases (Male:female ratio)`, y = `deaths (% male)`, size = Cases))+
+geom_point()
+
+##other data set with continents added
+
+path2 <- "~/R_working_directory/COVID_19_sex_data_continent.csv"
+
+Covid_data_continent <- read_csv(path2)
+
+  
+ggplot(data = Covid_data_continent , aes(x = `Deaths in confirmed cases (Male:female ratio)`, y = `deaths (% male)`, size = Cases,shape = Continent))+
+geom_point()
+
+#final graphs to export
+
+ggplot(data = Covid_data_continent, aes(x = `Deaths in confirmed cases (Male:female ratio)`, y = Cases, shape = Continent))+
+geom_point(position = "jitter", size = 3)+
+  ylim(0,65000)+
+  ggtitle("Ratio of M:F Deaths in confirmed cases of COVID19 and total cases",subtitle = "Data source: http://globalhealth5050.org/covid19/" )
+  
+  
+
+```
+
+
