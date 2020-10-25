@@ -1,0 +1,48 @@
+---
+title: "Windows Bash notes"
+author: "Varun Venkatesh"
+date: "25/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Key commands
+
+* cd #followed by folder# enters folder
+* cd.. goes back
+* ls shows what is in current folder
+
+## general notes
+
+Working directory link: /mnt/c/Users/varun/Documents
+
+```{bash}
+
+cd /mnt/c/Users/varun/Documents 
+
+#will take you to working director
+
+```
+
+# Setting up github on laptop
+###### Source:*https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git*
+
+```{bash}
+
+git config --global user.name "Your Name"
+
+git config --global user.name "Varun Venkatesh"
+
+git config --global user.email "youremail@domain.com"
+
+git config --global user.email "varun.venkatesh@gmail.com"
+
+
+
+```
+
+
